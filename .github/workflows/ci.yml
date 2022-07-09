@@ -101,7 +101,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com
-          scope: '@uiwjs'
+          scope: '@jaywcjlove'
 
       - run: npm install
       - run: npm run build
