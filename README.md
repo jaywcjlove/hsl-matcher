@@ -91,9 +91,10 @@ export interface HSLObjectStringColor {
 export interface HSLAObjectStringColor extends HSLObjectStringColor {
   a?: string;
 }
+/** Convert HLS string to HLS object or verify whether hls is valid */
 export default function hslMatcher(hsl?: string): boolean | HSLAObjectStringColor;
 /**
- * HSL string to RGB
+ * Convert HSL String to RGB
  *
  * ```js
  * hsl(240, 100%, 50%)                         // ✅ comma separated
@@ -128,9 +129,9 @@ export default function hslMatcher(hsl?: string): boolean | HSLAObjectStringColo
  * https://www.30secondsofcode.org/js/s/hsl-to-rgb
  */
 export declare function hlsStringToRGB(hls: string): RGBColor | undefined;
-/** grad => deg  */
+/** Convert `grad` to `deg` */
 export declare function gradsToDegrees(input: string | number): number;
-/** rad => deg  */
+/** Convert `rad` to `deg` */
 export declare function radiansToDegrees(radians: number): number;
 ```
 
