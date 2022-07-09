@@ -1,0 +1,50 @@
+{
+  "name": "hsl-matcher",
+  "version": "0.0.5",
+  "description": "A module to find HSL(a) color syntax substrings in a string with their offsets and their color instance.",
+  "author": "jaywcjlove",
+  "license": "MIT",
+  "type": "module",
+  "types": "./lib/index.d.ts",
+  "exports": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaywcjlove/hsl-matcher"
+  },
+  "scripts": {
+    "prepack": "husky install && npm run build",
+    "start": "tsbb watch --disable-babel",
+    "build": "tsbb build --disable-babel",
+    "type-check": "tsc --noEmit",
+    "test": "tsbb test",
+    "coverage": "tsbb test --coverage",
+    "prettier": "prettier --write \"**/*.{js,ts,md,json}\""
+  },
+  "files": [
+    "src/index.ts",
+    "lib"
+  ],
+  "keywords": [
+    "rehype",
+    "rehype-rewrite",
+    "rewrite",
+    "element",
+    "markdown",
+    "javascript",
+    "html",
+    "ast",
+    "unified"
+  ],
+  "engines": {
+    "node": ">=14.16"
+  },
+  "lint-staged": {
+    "*.{js,ts,less,md,json}": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "tsbb": "~3.7.6"
+  }
+}
