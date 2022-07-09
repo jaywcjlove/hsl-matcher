@@ -1,5 +1,8 @@
 import hslMatcher from '..';
 
+it('=> hsl() ❌ ', () => expect(hslMatcher('hsl()')).toBeFalsy());
+it('=> hsl("") ❌ ', () => expect(hslMatcher('hsl("")')).toBeFalsy());
+it('=> hsl("~~~~") ❌ ', () => expect(hslMatcher('hsl("~~~")')).toBeFalsy());
 it('=> hsl(240, 100%, 50%, 23x) ❌ ', () => expect(hslMatcher('hsl(240, 100%, 50%, 23x)')).toBeFalsy());
 
 it('=> hsl(240, 100%, 50% ) ✅ ', () =>
