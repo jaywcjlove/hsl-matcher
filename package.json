@@ -1,6 +1,6 @@
 {
   "name": "hsl-matcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module to find HSL(a) color syntax substrings in a string with their offsets and their color instance.",
   "author": "jaywcjlove",
   "homepage": "https://jaywcjlove.github.io/hsl-matcher/",
