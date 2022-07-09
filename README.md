@@ -1,7 +1,7 @@
 HSL(a) Matcher
 ===
 
-[![Build & Deploy](https://github.com/jaywcjlove/hsl-matcher/workflows/Build%20&%20Deploy/badge.svg)](https://github.com/jaywcjlove/hsl-matcher/actions)
+[![Build & Deploy](https://github.com/jaywcjlove/hsl-matcher/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/hsl-matcher/actions/workflows/ci.yml)
 [![Open in unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://jaywcjlove.github.io/npm-unpkg/#/pkg/@uiw/hsl-matcher/file/README.md)
 [![npm version](https://img.shields.io/npm/v/hsl-matcher.svg)](https://www.npmjs.com/package/hsl-matcher)
 [![Coverage Status](https://jaywcjlove.github.io/hsl-matcher/coverage/badges.svg)](https://jaywcjlove.github.io/hsl-matcher/lcov-report/)
