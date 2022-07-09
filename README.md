@@ -37,7 +37,7 @@ hslMatcher("hsl(240, 100%, 50%, 0.1)");                    // ✅ comma separate
 // => { h: '240', s: '100%', l: '50%', a: '0.1' }
 hslMatcher("hsl(240, 100%, 50%, 10%)");                    // ✅ comma separated with % opacity
 // => { h: '240', s: '100%', l: '50%', a: '10%' }
-hslMatcher("hsl(240, 100%, 50%, 10x)");                    // ❌
+hslMatcher("hsl(240, 100%, 50%, 10x)"); // => false        // ❌
 hslMatcher("hsl(240,100%,50%,0.1)");                       // ✅ comma separated without spaces
 hslMatcher("hsl(180deg, 100%, 50%, 0.1)");                 // ✅ hue with 'deg'
 hslMatcher("hsl(3.14rad, 100%, 50%, 0.1)");                // ✅ hue with 'rad'
@@ -47,7 +47,7 @@ hslMatcher("hsl(-240, -100%, -50%, -0.1)");                // ✅ negative value
 hslMatcher("hsl(+240, +100%, +50%, +0.1)");                // ✅ explicit positive sign
 hslMatcher("hsl(240.5, 99.99%, 49.999%, 0.9999)");         // ✅ non-integer values
 hslMatcher("hsl(.9, .99%, .999%, .9999)");                 // ✅ fraction w/o leading zero
-hslMatcher("hsl(.9, .99%, .999%, )");                      // ❌
+hslMatcher("hsl(.9, .99%, .999%, )"); // => false          // ❌
 hslMatcher("hsl(0240, 0100%, 0050%, 01)");                 // ✅ leading zeros
 hslMatcher("hsl(240.0, 100.00%, 50.000%, 1.0000)");        // ✅ trailing decimal zeros
 hslMatcher("hsl(2400, 1000%, 1000%, 10)");                 // ✅ out of range values
