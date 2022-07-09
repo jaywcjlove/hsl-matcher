@@ -1,4 +1,4 @@
-import hslMatcher from '..';
+import hslMatcher, { hlsStringToRGB, gradsToDegrees, radiansToDegrees } from '..';
 
 it('=> hsl() ❌ ', () => expect(hslMatcher('hsl()')).toBeFalsy());
 it('=> hsl("") ❌ ', () => expect(hslMatcher('hsl("")')).toBeFalsy());
@@ -183,3 +183,78 @@ it('=> HSL(240Deg, 100%, 50%) ✅ ', () =>
     l: '50%',
     a: undefined,
   }));
+
+it('=> hlsStringToRGB("hsla(240, 100%, 50%)")', () =>
+  expect(hlsStringToRGB('hsla(240, 100%, 50%)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 255,
+  }));
+
+it('=> hlsStringToRGB("hsl(240, 100%, 50%)")', () =>
+  expect(hlsStringToRGB('hsl(240, 100%, 50%)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 255,
+  }));
+
+it('=> hlsStringToRGB("hsl(0240, 0100%, 0050%)")', () =>
+  expect(hlsStringToRGB('hsl(0240, 0100%, 0050%)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 255,
+  }));
+
+it('=> hlsStringToRGB("hsl(2400, 1000%, 1000%)")', () =>
+  expect(hlsStringToRGB('hsl(2400, 1000%, 1000%)')).toEqual({
+    r: 255,
+    g: 255,
+    b: 255,
+  }));
+
+it('=> hlsStringToRGB("hsl(2.40e+2, 1.00e+2%, 5.00e+1%)")', () =>
+  expect(hlsStringToRGB('hsl(2.40e+2, 1.00e+2%, 5.00e+1%)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 255,
+  }));
+
+it('=> hlsStringToRGB("hsl(180deg, 100%, 50%)")', () =>
+  expect(hlsStringToRGB('hsl(180deg, 100%, 50%)')).toEqual({
+    r: 0,
+    g: 255,
+    b: 255,
+  }));
+
+it('=> hlsStringToRGB("hsl(0.5turn, 100%, 50%)")', () =>
+  expect(hlsStringToRGB('hsl(0.5turn, 100%, 50%)')).toEqual({
+    r: 0,
+    g: 255,
+    b: 255,
+  }));
+
+it('=> hlsStringToRGB("hsl(-240, -100%, -50%)")', () =>
+  expect(hlsStringToRGB('hsl(-240, -100%, -50%)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 0,
+  }));
+
+it('=> hlsStringToRGB("hsl(3.14rad, 100%, 50%)")', () =>
+  expect(hlsStringToRGB('hsl(3.14rad, 100%, 50%)')).toEqual({
+    r: 0,
+    g: 255,
+    b: 255,
+  }));
+
+it('=> hlsStringToRGB("hsl(200grad, 100%, 50%)")', () =>
+  expect(hlsStringToRGB('hsl(200grad, 100%, 50%)')).toEqual({
+    r: 0,
+    g: 255,
+    b: 255,
+  }));
+
+it('=> gradsToDegrees("200")', () => expect(gradsToDegrees('200')).toEqual(180));
+it('=> gradsToDegrees(200)', () => expect(gradsToDegrees(200)).toEqual(180));
+
+it('=> radiansToDegrees(3.14)', () => expect(radiansToDegrees(3.14)).toEqual(180));

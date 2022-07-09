@@ -60,6 +60,80 @@ hslMatcher("hsla(240, 100%, 50%, 0.1)");                   // ✅ hsla() with op
 hslMatcher("HSL(240Deg, 100%, 50%)");                      // ✅ case insensitive
 ```
 
+**hlsStringToRGB**
+
+```js
+import { hlsStringToRGB, gradsToDegrees, radiansToDegrees } from "hsl-matcher";
+
+hlsStringToRGB("hsla(240, 100%, 50%)")  // => { r: 0, g: 0, b: 255 }
+
+gradsToDegrees("200");     // => 180
+gradsToDegrees(200);       // => 180
+radiansToDegrees(3.14);    // => 180
+```
+
+## API
+
+```ts
+export interface RGBColor {
+  r: number;
+  g: number;
+  b: number;
+}
+export interface RGBAColor extends RGBColor {
+  a: number;
+}
+export interface HSLObjectStringColor {
+  h: string;
+  s: string;
+  l: string;
+}
+export interface HSLAObjectStringColor extends HSLObjectStringColor {
+  a?: string;
+}
+export default function hslMatcher(hsl?: string): boolean | HSLAObjectStringColor;
+/**
+ * HSL string to RGB
+ *
+ * ```js
+ * hsl(240, 100%, 50%)                         // ✅ comma separated
+ * hsl(240, 100%, 50%, 0.1)                    // ✅ comma separated with opacity
+ * hsl(240, 100%, 50%, 10%)                    // ✅ comma separated with % opacity
+ * hsl(240, 100%, 50%, 10x)                    // ❌
+ * hsl(240,100%,50%,0.1)                       // ✅ comma separated without spaces
+ * hsl(180deg, 100%, 50%, 0.1)                 // ✅ hue with 'deg'
+ * hsl(3.14rad, 100%, 50%, 0.1)                // ✅ hue with 'rad'
+ * hsl(200grad, 100%, 50%, 0.1)                // ✅ hue with 'grad'
+ * hsl(0.5turn, 100%, 50%, 0.1)                // ✅ hue with 'turn'
+ * hsl(-240, -100%, -50%, -0.1)                // ✅ negative values
+ * hsl(+240, +100%, +50%, +0.1)                // ✅ explicit positive sign
+ * hsl(240.5, 99.99%, 49.999%, 0.9999)         // ✅ non-integer values
+ * hsl(.9, .99%, .999%, .9999)                 // ✅ fraction w/o leading zero
+ * hsl(.9, .99%, .999%, )                      // ❌
+ * hsl(0240, 0100%, 0050%, 01)                 // ✅ leading zeros
+ * hsl(240.0, 100.00%, 50.000%, 1.0000)        // ✅ trailing decimal zeros
+ * hsl(2400, 1000%, 1000%, 10)                 // ✅ out of range values
+ * hsl(-2400.01deg, -1000.5%, -1000.05%, -100) // ✅ combination of above
+ * hsl(2.40e+2, 1.00e+2%, 5.00e+1%, 1E-3)      // ✅ scientific notation
+ * hsl(240 100% 50%)                           // ✅ space separated (CSS Color Level 4)
+ * hsl(240 100% 50% / 0.1)                     // ✅ space separated with opacity
+ * hsla(240, 100%, 50%)                        // ✅ hsla() alias
+ * hsla(240, 100%, 50%, 0.1)                   // ✅ hsla() with opacity
+ * HSL(240Deg, 100%, 50%)                      // ✅ case insensitive
+ * ```
+ *
+ * @param string
+ * @returns <RGBColor | undefined>
+ *
+ * https://www.30secondsofcode.org/js/s/hsl-to-rgb
+ */
+export declare function hlsStringToRGB(hls: string): RGBColor | undefined;
+/** grad => deg  */
+export declare function gradsToDegrees(input: string | number): number;
+/** rad => deg  */
+export declare function radiansToDegrees(radians: number): number;
+```
+
 ## Contributors
 
 As always, thanks to our amazing contributors!
