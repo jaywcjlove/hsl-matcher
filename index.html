@@ -190,7 +190,7 @@ const hslMatcher = await (Function(&#x27;return import(&#x22;hsl-matcher&#x22;)&
 </span><span class="code-line"><span class="token comment">// => { h: '240', s: '100%', l: '50%', a: '0.1' }</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(240, 100%, 50%, 10%)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment">// ✅ comma separated with % opacity</span>
 </span><span class="code-line"><span class="token comment">// => { h: '240', s: '100%', l: '50%', a: '10%' }</span>
-</span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(240, 100%, 50%, 10x)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment">// ❌</span>
+</span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(240, 100%, 50%, 10x)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => false        // ❌</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(240,100%,50%,0.1)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       <span class="token comment">// ✅ comma separated without spaces</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(180deg, 100%, 50%, 0.1)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment">// ✅ hue with 'deg'</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(3.14rad, 100%, 50%, 0.1)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// ✅ hue with 'rad'</span>
@@ -200,7 +200,7 @@ const hslMatcher = await (Function(&#x27;return import(&#x22;hsl-matcher&#x22;)&
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(+240, +100%, +50%, +0.1)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment">// ✅ explicit positive sign</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(240.5, 99.99%, 49.999%, 0.9999)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// ✅ non-integer values</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(.9, .99%, .999%, .9999)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment">// ✅ fraction w/o leading zero</span>
-</span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(.9, .99%, .999%, )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment">// ❌</span>
+</span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(.9, .99%, .999%, )"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => false          // ❌</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(0240, 0100%, 0050%, 01)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment">// ✅ leading zeros</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(240.0, 100.00%, 50.000%, 1.0000)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// ✅ trailing decimal zeros</span>
 </span><span class="code-line"><span class="token function">hslMatcher</span><span class="token punctuation">(</span><span class="token string">"hsl(2400, 1000%, 1000%, 10)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment">// ✅ out of range values</span>
@@ -219,7 +219,7 @@ hslMatcher(&#x22;hsl(240, 100%, 50%, 0.1)&#x22;);                    // ✅ comm
 // => { h: &#x27;240&#x27;, s: &#x27;100%&#x27;, l: &#x27;50%&#x27;, a: &#x27;0.1&#x27; }
 hslMatcher(&#x22;hsl(240, 100%, 50%, 10%)&#x22;);                    // ✅ comma separated with % opacity
 // => { h: &#x27;240&#x27;, s: &#x27;100%&#x27;, l: &#x27;50%&#x27;, a: &#x27;10%&#x27; }
-hslMatcher(&#x22;hsl(240, 100%, 50%, 10x)&#x22;);                    // ❌
+hslMatcher(&#x22;hsl(240, 100%, 50%, 10x)&#x22;); // => false        // ❌
 hslMatcher(&#x22;hsl(240,100%,50%,0.1)&#x22;);                       // ✅ comma separated without spaces
 hslMatcher(&#x22;hsl(180deg, 100%, 50%, 0.1)&#x22;);                 // ✅ hue with &#x27;deg&#x27;
 hslMatcher(&#x22;hsl(3.14rad, 100%, 50%, 0.1)&#x22;);                // ✅ hue with &#x27;rad&#x27;
@@ -229,7 +229,7 @@ hslMatcher(&#x22;hsl(-240, -100%, -50%, -0.1)&#x22;);                // ✅ nega
 hslMatcher(&#x22;hsl(+240, +100%, +50%, +0.1)&#x22;);                // ✅ explicit positive sign
 hslMatcher(&#x22;hsl(240.5, 99.99%, 49.999%, 0.9999)&#x22;);         // ✅ non-integer values
 hslMatcher(&#x22;hsl(.9, .99%, .999%, .9999)&#x22;);                 // ✅ fraction w/o leading zero
-hslMatcher(&#x22;hsl(.9, .99%, .999%, )&#x22;);                      // ❌
+hslMatcher(&#x22;hsl(.9, .99%, .999%, )&#x22;); // => false          // ❌
 hslMatcher(&#x22;hsl(0240, 0100%, 0050%, 01)&#x22;);                 // ✅ leading zeros
 hslMatcher(&#x22;hsl(240.0, 100.00%, 50.000%, 1.0000)&#x22;);        // ✅ trailing decimal zeros
 hslMatcher(&#x22;hsl(2400, 1000%, 1000%, 10)&#x22;);                 // ✅ out of range values
