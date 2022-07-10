@@ -163,7 +163,7 @@ customElements.define('markdown-style', MarkdownStyle);</script><markdown-style 
       <a href="https://www.npmjs.com/package/hsl-matcher"><img src="https://img.shields.io/npm/v/hsl-matcher.svg" alt="npm version"></a>
       <a href="https://jaywcjlove.github.io/hsl-matcher/lcov-report/"><img src="https://jaywcjlove.github.io/hsl-matcher/badges.svg" alt="Coverage Status"></a>
     </p>
-    <p>A module to find HSL(a) color syntax substrings in a string with their offsets and their color instance.</p>
+    <p>A module to find <a href="https://www.w3.org/TR/css-color-4/#the-hsl-notation">HSL(a)</a> color syntax substrings in a string with their offsets and their color instance.</p>
     <h2 id="installation"><a class="anchor" aria-hidden="true" tabindex="-1" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
     <p>This package is <a href="https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c">ESM only</a>: Node 12+ is needed to use it and it must be import instead of require.</p>
     <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line"><span class="token function">npm</span> <span class="token function">install</span> hsl-matcher
@@ -307,7 +307,7 @@ radiansToDegrees(3.14);    // => 180
 </span></span><span class="code-line"><span class="token comment"> * ```
 </span></span><span class="code-line"><span class="token comment"> *
 </span></span><span class="code-line"><span class="token comment"> * @param string
-</span></span><span class="code-line"><span class="token comment"> * @returns &#x3C;RGBColor | undefined>
+</span></span><span class="code-line"><span class="token comment"> * @returns &#x3C;RGBColor | RGBAColor | undefined>
 </span></span><span class="code-line"><span class="token comment"> *
 </span></span><span class="code-line"><span class="token comment"> * https://www.30secondsofcode.org/js/s/hsl-to-rgb
 </span></span><span class="code-line"><span class="token comment"> */</span>
@@ -365,7 +365,7 @@ export default function hslMatcher(hsl?: string): HSLAObjectStringColor | undefi
  * &#x60;&#x60;&#x60;
  *
  * @param string
- * @returns <RGBColor | undefined>
+ * @returns <RGBColor | RGBAColor | undefined>
  *
  * https://www.30secondsofcode.org/js/s/hsl-to-rgb
  */
