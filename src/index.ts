@@ -32,7 +32,7 @@ export interface HSLAObjectStringColor extends HSLObjectStringColor {
 }
 
 /** Convert HLS string to HLS object or verify whether hls is valid */
-export default function hslMatcher(hsl: string = ''): boolean | HSLAObjectStringColor {
+export default function hslMatcher(hsl: string = ''): HSLAObjectStringColor | undefined {
   const match = MATCHER.exec(hsl);
   if (!!match) {
     const [_, h, __, s, l, a] = match;
@@ -56,7 +56,6 @@ export default function hslMatcher(hsl: string = ''): boolean | HSLAObjectString
       a: aStr(a),
     };
   }
-  return false;
 }
 
 /**
@@ -96,7 +95,7 @@ export default function hslMatcher(hsl: string = ''): boolean | HSLAObjectString
  */
 export function hlsStringToRGB(hls: string): RGBColor | RGBAColor | undefined {
   const obj = hslMatcher(hls);
-  if (typeof obj === 'boolean') return;
+  if (!obj) return;
   const { h: hueStr, s: sStr, l: lStr, a: alphaStr } = obj;
   let h = 0,
     s = 0,

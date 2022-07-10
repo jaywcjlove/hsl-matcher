@@ -92,7 +92,7 @@ export interface HSLAObjectStringColor extends HSLObjectStringColor {
   a?: string;
 }
 /** Convert HLS string to HLS object or verify whether hls is valid */
-export default function hslMatcher(hsl?: string): boolean | HSLAObjectStringColor;
+export default function hslMatcher(hsl?: string): HSLAObjectStringColor | undefined;
 /**
  * Convert HSL String to RGB
  *

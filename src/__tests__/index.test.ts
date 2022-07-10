@@ -7,9 +7,10 @@ it('=> gradsToDegrees(+200)', () => expect(gradsToDegrees(200)).toEqual(180));
 
 it('=> radiansToDegrees(3.14)', () => expect(radiansToDegrees(3.14)).toEqual(180));
 
-it('=> hsl() ❌ ', () => expect(hslMatcher('hsl()')).toBeFalsy());
-it('=> hsl("") ❌ ', () => expect(hslMatcher('hsl("")')).toBeFalsy());
-it('=> hsl("~~~~") ❌ ', () => expect(hslMatcher('hsl("~~~")')).toBeFalsy());
+it('=> hsl() ❌ ', () => expect(hslMatcher('')).toBeUndefined());
+it('=> hsl() ❌ ', () => expect(hslMatcher('hsl()')).toBeUndefined());
+it('=> hsl("") ❌ ', () => expect(hslMatcher('hsl("")')).toBeUndefined());
+it('=> hsl("~~~~") ❌ ', () => expect(hslMatcher('hsl("~~~")')).toBeUndefined());
 it('=> hsl(240, 100%, 50%, 23x) ❌ ', () => expect(hslMatcher('hsl(240, 100%, 50%, 23x)')).toBeFalsy());
 
 it('=> hsl(240, 100%, 50% ) ✅ ', () =>
@@ -108,7 +109,7 @@ it('=> hsl(.9, .99%, .999%, .9999) ✅ ', () =>
     s: '.99%',
   }));
 
-it('=> hsl(.9, .99%, .999%, ) ❌ ', () => expect(hslMatcher('hsl(.9, .99%, .999%, )')).toBeFalsy());
+it('=> hsl(.9, .99%, .999%, ) ❌ ', () => expect(hslMatcher('hsl(.9, .99%, .999%, )')).toBeUndefined());
 
 it('=> hsl(0240, 0100%, 0050%, 01) ✅ ', () =>
   expect(hslMatcher('hsl(0240, 0100%, 0050%, 01)')).toEqual({
@@ -330,3 +331,5 @@ it('=> hlsStringToRGB("hsl(+240, +100%, +50%, +0.1)")', () =>
     b: 255,
     a: 0.1,
   }));
+
+it('=> hlsStringToRGB("")', () => expect(hlsStringToRGB('')).toBeUndefined());
