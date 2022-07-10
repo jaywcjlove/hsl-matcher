@@ -159,7 +159,7 @@ customElements.define('markdown-style', MarkdownStyle);</script><markdown-style 
     <h1 id="hsla-matcher"><a class="anchor" aria-hidden="true" tabindex="-1" href="#hsla-matcher"><span class="octicon octicon-link"></span></a>HSL(a) Matcher</h1>
     <p>
       <a href="https://github.com/jaywcjlove/hsl-matcher/actions/workflows/ci.yml"><img src="https://github.com/jaywcjlove/hsl-matcher/actions/workflows/ci.yml/badge.svg" alt="Build &#x26; Deploy"></a>
-      <a href="https://jaywcjlove.github.io/npm-unpkg/#/pkg/hsl-matcher/file/README.md"><img src="https://img.shields.io/badge/Open%20in-unpkg-blue" alt="Open in unpkg"></a>
+      <a href="https://uiwjs.github.io/npm-unpkg/#/pkg/hsl-matcher/file/README.md"><img src="https://img.shields.io/badge/Open%20in-unpkg-blue" alt="Open in unpkg"></a>
       <a href="https://www.npmjs.com/package/hsl-matcher"><img src="https://img.shields.io/npm/v/hsl-matcher.svg" alt="npm version"></a>
       <a href="https://jaywcjlove.github.io/hsl-matcher/lcov-report/"><img src="https://jaywcjlove.github.io/hsl-matcher/badges.svg" alt="Coverage Status"></a>
     </p>
@@ -311,7 +311,7 @@ radiansToDegrees(3.14);    // => 180
 </span></span><span class="code-line"><span class="token comment"> *
 </span></span><span class="code-line"><span class="token comment"> * https://www.30secondsofcode.org/js/s/hsl-to-rgb
 </span></span><span class="code-line"><span class="token comment"> */</span>
-</span><span class="code-line"><span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">function</span> <span class="token function">hlsStringToRGB</span><span class="token punctuation">(</span>hls<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> RGBColor <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">function</span> <span class="token function">hlsStringToRGB</span><span class="token punctuation">(</span>hls<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> RGBColor <span class="token operator">|</span> RGBAColor <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
 </span><span class="code-line"><span class="token comment">/** Convert `grad` to `deg` */</span>
 </span><span class="code-line"><span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">function</span> <span class="token function">gradsToDegrees</span><span class="token punctuation">(</span>input<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
 </span><span class="code-line"><span class="token comment">/** Convert `rad` to `deg` */</span>
@@ -369,7 +369,7 @@ export default function hslMatcher(hsl?: string): boolean | HSLAObjectStringColo
  *
  * https://www.30secondsofcode.org/js/s/hsl-to-rgb
  */
-export declare function hlsStringToRGB(hls: string): RGBColor | undefined;
+export declare function hlsStringToRGB(hls: string): RGBColor | RGBAColor | undefined;
 /** Convert &#x60;grad&#x60; to &#x60;deg&#x60; */
 export declare function gradsToDegrees(input: string | number): number;
 /** Convert &#x60;rad&#x60; to &#x60;deg&#x60; */
