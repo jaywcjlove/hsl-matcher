@@ -89,7 +89,7 @@ export default function hslMatcher(hsl: string = ''): HSLAObjectStringColor | un
  * ```
  *
  * @param string
- * @returns <RGBColor | undefined>
+ * @returns <RGBColor | RGBAColor | undefined>
  *
  * https://www.30secondsofcode.org/js/s/hsl-to-rgb
  */

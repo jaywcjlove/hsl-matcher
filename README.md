@@ -6,7 +6,7 @@ HSL(a) Matcher
 [![npm version](https://img.shields.io/npm/v/hsl-matcher.svg)](https://www.npmjs.com/package/hsl-matcher)
 [![Coverage Status](https://jaywcjlove.github.io/hsl-matcher/badges.svg)](https://jaywcjlove.github.io/hsl-matcher/lcov-report/)
 
-A module to find HSL(a) color syntax substrings in a string with their offsets and their color instance.
+A module to find [HSL(a)](https://www.w3.org/TR/css-color-4/#the-hsl-notation) color syntax substrings in a string with their offsets and their color instance.
 
 ## Installation
 
@@ -124,7 +124,7 @@ export default function hslMatcher(hsl?: string): HSLAObjectStringColor | undefi
  * ```
  *
  * @param string
- * @returns <RGBColor | undefined>
+ * @returns <RGBColor | RGBAColor | undefined>
  *
  * https://www.30secondsofcode.org/js/s/hsl-to-rgb
  */
