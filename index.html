@@ -275,7 +275,7 @@ radiansToDegrees(3.14);    // => 180
 </span><span class="code-line">  a<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
 </span><span class="code-line"><span class="token punctuation">}</span>
 </span><span class="code-line"><span class="token comment">/** Convert HLS string to HLS object or verify whether hls is valid */</span>
-</span><span class="code-line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">hslMatcher</span><span class="token punctuation">(</span>hsl<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">|</span> HSLAObjectStringColor<span class="token punctuation">;</span>
+</span><span class="code-line"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">hslMatcher</span><span class="token punctuation">(</span>hsl<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> HSLAObjectStringColor <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
 </span><span class="code-line"><span class="token comment">/**
 </span></span><span class="code-line"><span class="token comment"> * Convert HSL String to RGB
 </span></span><span class="code-line"><span class="token comment"> *
@@ -333,7 +333,7 @@ export interface HSLAObjectStringColor extends HSLObjectStringColor {
   a?: string;
 }
 /** Convert HLS string to HLS object or verify whether hls is valid */
-export default function hslMatcher(hsl?: string): boolean | HSLAObjectStringColor;
+export default function hslMatcher(hsl?: string): HSLAObjectStringColor | undefined;
 /**
  * Convert HSL String to RGB
  *
