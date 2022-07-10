@@ -254,7 +254,16 @@ it('=> hlsStringToRGB("hsl(200grad, 100%, 50%)")', () =>
     b: 255,
   }));
 
+it('=> hlsStringToRGB("hsl(-200grad, 100%, 50%)")', () =>
+  expect(hlsStringToRGB('hsl(-200grad, 100%, 50%)')).toEqual({
+    r: 0,
+    g: 255,
+    b: 255,
+  }));
+
 it('=> gradsToDegrees("200")', () => expect(gradsToDegrees('200')).toEqual(180));
 it('=> gradsToDegrees(200)', () => expect(gradsToDegrees(200)).toEqual(180));
+it('=> gradsToDegrees(-200)', () => expect(gradsToDegrees(200)).toEqual(180));
+it('=> gradsToDegrees(+200)', () => expect(gradsToDegrees(200)).toEqual(180));
 
 it('=> radiansToDegrees(3.14)', () => expect(radiansToDegrees(3.14)).toEqual(180));
