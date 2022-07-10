@@ -1,5 +1,12 @@
 import hslMatcher, { hlsStringToRGB, gradsToDegrees, radiansToDegrees } from '..';
 
+it('=> gradsToDegrees("200")', () => expect(gradsToDegrees('200')).toEqual(180));
+it('=> gradsToDegrees(200)', () => expect(gradsToDegrees(200)).toEqual(180));
+it('=> gradsToDegrees(-200)', () => expect(gradsToDegrees(200)).toEqual(180));
+it('=> gradsToDegrees(+200)', () => expect(gradsToDegrees(200)).toEqual(180));
+
+it('=> radiansToDegrees(3.14)', () => expect(radiansToDegrees(3.14)).toEqual(180));
+
 it('=> hsl() ❌ ', () => expect(hslMatcher('hsl()')).toBeFalsy());
 it('=> hsl("") ❌ ', () => expect(hslMatcher('hsl("")')).toBeFalsy());
 it('=> hsl("~~~~") ❌ ', () => expect(hslMatcher('hsl("~~~")')).toBeFalsy());
@@ -198,11 +205,12 @@ it('=> hlsStringToRGB("hsl(240, 100%, 50%)")', () =>
     b: 255,
   }));
 
-it('=> hlsStringToRGB("hsl(0240, 0100%, 0050%)")', () =>
-  expect(hlsStringToRGB('hsl(0240, 0100%, 0050%)')).toEqual({
+it('=> hlsStringToRGB("hsl(0240, 0100%, 0050%, 01)")', () =>
+  expect(hlsStringToRGB('hsl(0240, 0100%, 0050%, 01)')).toEqual({
     r: 0,
     g: 0,
     b: 255,
+    a: 1,
   }));
 
 it('=> hlsStringToRGB("hsl(2400, 1000%, 1000%)")', () =>
@@ -212,46 +220,52 @@ it('=> hlsStringToRGB("hsl(2400, 1000%, 1000%)")', () =>
     b: 255,
   }));
 
-it('=> hlsStringToRGB("hsl(2.40e+2, 1.00e+2%, 5.00e+1%)")', () =>
-  expect(hlsStringToRGB('hsl(2.40e+2, 1.00e+2%, 5.00e+1%)')).toEqual({
+it('=> hlsStringToRGB("hsl(2.40e+2, 1.00e+2%, 5.00e+1%, 1E-3)")', () =>
+  expect(hlsStringToRGB('hsl(2.40e+2, 1.00e+2%, 5.00e+1%, 1E-3)')).toEqual({
     r: 0,
     g: 0,
     b: 255,
+    a: 0.001,
   }));
 
-it('=> hlsStringToRGB("hsl(180deg, 100%, 50%)")', () =>
-  expect(hlsStringToRGB('hsl(180deg, 100%, 50%)')).toEqual({
+it('=> hlsStringToRGB("hsl(180deg, 100%, 50%, 0.1)")', () =>
+  expect(hlsStringToRGB('hsl(180deg, 100%, 50%, 0.1)')).toEqual({
     r: 0,
     g: 255,
     b: 255,
+    a: 0.1,
   }));
 
-it('=> hlsStringToRGB("hsl(0.5turn, 100%, 50%)")', () =>
-  expect(hlsStringToRGB('hsl(0.5turn, 100%, 50%)')).toEqual({
+it('=> hlsStringToRGB("hsl(0.5turn, 100%, 50%, 0.1)")', () =>
+  expect(hlsStringToRGB('hsl(0.5turn, 100%, 50%, 0.1)')).toEqual({
     r: 0,
     g: 255,
     b: 255,
+    a: 0.1,
   }));
 
-it('=> hlsStringToRGB("hsl(-240, -100%, -50%)")', () =>
-  expect(hlsStringToRGB('hsl(-240, -100%, -50%)')).toEqual({
+it('=> hlsStringToRGB("hsl(-240, -100%, -50%, -0.1)")', () =>
+  expect(hlsStringToRGB('hsl(-240, -100%, -50%, -0.1)')).toEqual({
     r: 0,
     g: 0,
     b: 0,
+    a: -0.1,
   }));
 
-it('=> hlsStringToRGB("hsl(3.14rad, 100%, 50%)")', () =>
-  expect(hlsStringToRGB('hsl(3.14rad, 100%, 50%)')).toEqual({
+it('=> hlsStringToRGB("hsl(3.14rad, 100%, 50%, 0.1)")', () =>
+  expect(hlsStringToRGB('hsl(3.14rad, 100%, 50%, 0.1)')).toEqual({
     r: 0,
     g: 255,
     b: 255,
+    a: 0.1,
   }));
 
-it('=> hlsStringToRGB("hsl(200grad, 100%, 50%)")', () =>
-  expect(hlsStringToRGB('hsl(200grad, 100%, 50%)')).toEqual({
+it('=> hlsStringToRGB("hsl(200grad, 100%, 50%, 0.1)")', () =>
+  expect(hlsStringToRGB('hsl(200grad, 100%, 50%, 0.1)')).toEqual({
     r: 0,
     g: 255,
     b: 255,
+    a: 0.1,
   }));
 
 it('=> hlsStringToRGB("hsl(-200grad, 100%, 50%)")', () =>
@@ -261,9 +275,58 @@ it('=> hlsStringToRGB("hsl(-200grad, 100%, 50%)")', () =>
     b: 255,
   }));
 
-it('=> gradsToDegrees("200")', () => expect(gradsToDegrees('200')).toEqual(180));
-it('=> gradsToDegrees(200)', () => expect(gradsToDegrees(200)).toEqual(180));
-it('=> gradsToDegrees(-200)', () => expect(gradsToDegrees(200)).toEqual(180));
-it('=> gradsToDegrees(+200)', () => expect(gradsToDegrees(200)).toEqual(180));
+it('=> hlsStringToRGB("hsla(240, 100%, 50%, 0.1)")', () =>
+  expect(hlsStringToRGB('hsla(240, 100%, 50%, 0.1)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 255,
+    a: 0.1,
+  }));
 
-it('=> radiansToDegrees(3.14)', () => expect(radiansToDegrees(3.14)).toEqual(180));
+it('=> hlsStringToRGB("hsl(240 100% 50% / 0.1)")', () =>
+  expect(hlsStringToRGB('hsl(240 100% 50% / 0.1)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 255,
+    a: 0.1,
+  }));
+
+it('=> hlsStringToRGB("hsl(-2400.01deg, -1000.5%, -1000.05%, -100)")', () =>
+  expect(hlsStringToRGB('hsl(-2400.01deg, -1000.5%, -1000.05%, -100)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 0,
+    a: -100,
+  }));
+
+it('=> hlsStringToRGB("hsl(240.0, 100.00%, 50.000%, 1.0000)")', () =>
+  expect(hlsStringToRGB('hsl(240.0, 100.00%, 50.000%, 1.0000)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 255,
+    a: 1,
+  }));
+
+it('=> hlsStringToRGB("hsl(.9, .99%, .999%, .9999)")', () =>
+  expect(hlsStringToRGB('hsl(.9, .99%, .999%, .9999)')).toEqual({
+    r: 3,
+    g: 3,
+    b: 3,
+    a: 0.9999,
+  }));
+
+it('=> hlsStringToRGB("hsl(240.5, 99.99%, 49.999%, 0.9999)")', () =>
+  expect(hlsStringToRGB('hsl(240.5, 99.99%, 49.999%, 0.9999)')).toEqual({
+    r: 2,
+    g: 0,
+    b: 255,
+    a: 0.9999,
+  }));
+
+it('=> hlsStringToRGB("hsl(+240, +100%, +50%, +0.1)")', () =>
+  expect(hlsStringToRGB('hsl(+240, +100%, +50%, +0.1)')).toEqual({
+    r: 0,
+    g: 0,
+    b: 255,
+    a: 0.1,
+  }));

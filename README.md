@@ -2,7 +2,7 @@ HSL(a) Matcher
 ===
 
 [![Build & Deploy](https://github.com/jaywcjlove/hsl-matcher/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/hsl-matcher/actions/workflows/ci.yml)
-[![Open in unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://jaywcjlove.github.io/npm-unpkg/#/pkg/hsl-matcher/file/README.md)
+[![Open in unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/hsl-matcher/file/README.md)
 [![npm version](https://img.shields.io/npm/v/hsl-matcher.svg)](https://www.npmjs.com/package/hsl-matcher)
 [![Coverage Status](https://jaywcjlove.github.io/hsl-matcher/badges.svg)](https://jaywcjlove.github.io/hsl-matcher/lcov-report/)
 
@@ -128,7 +128,7 @@ export default function hslMatcher(hsl?: string): boolean | HSLAObjectStringColo
  *
  * https://www.30secondsofcode.org/js/s/hsl-to-rgb
  */
-export declare function hlsStringToRGB(hls: string): RGBColor | undefined;
+export declare function hlsStringToRGB(hls: string): RGBColor | RGBAColor | undefined;
 /** Convert `grad` to `deg` */
 export declare function gradsToDegrees(input: string | number): number;
 /** Convert `rad` to `deg` */
