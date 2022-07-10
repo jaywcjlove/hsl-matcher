@@ -22,6 +22,7 @@ it('❌ => hsl(+ .9deg, .99%, -.999% )', () => expect(hslMatcher('hsl(+ .9deg, .
 
 it('✅ valid => hsl(.9deg, .99%, -.999% )', () => expect(hslMatcher('hsl(.9deg, .99%, -.999% )')).toBeTruthy());
 it('✅ valid => hsl(-.9deg, .99%, -.999% )', () => expect(hslMatcher('hsl(-.9deg, .99%, -.999% )')).toBeTruthy());
+it('✅ valid => HSLa(240Deg, 100%, 50%)', () => expect(hslMatcher('HSLa(240Deg, 100%, 50%)')).toBeTruthy());
 
 it('=> hsl(.9, .99%, -.999% ) ✅ ', () =>
   expect(hslMatcher('hsl(.9, .99%, -.999% )')).toEqual({
