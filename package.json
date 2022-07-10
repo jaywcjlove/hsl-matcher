@@ -26,15 +26,14 @@
     "lib"
   ],
   "keywords": [
-    "rehype",
-    "rehype-rewrite",
-    "rewrite",
-    "element",
-    "markdown",
-    "javascript",
-    "html",
-    "ast",
-    "unified"
+    "hsl",
+    "hsla",
+    "hsl-matcher",
+    "hsla-matcher",
+    "matcher",
+    "color",
+    "css",
+    "javascript"
   ],
   "engines": {
     "node": ">=14.16"
