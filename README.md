@@ -60,7 +60,7 @@ hslMatcher("hsla(240, 100%, 50%, 0.1)");                   // ✅ hsla() with op
 hslMatcher("HSL(240Deg, 100%, 50%)");                      // ✅ case insensitive
 ```
 
-**hlsStringToRGB**
+**hlsStringToRGB / gradsToDegrees / radiansToDegrees**
 
 ```js
 import { hlsStringToRGB, gradsToDegrees, radiansToDegrees } from "hsl-matcher";
