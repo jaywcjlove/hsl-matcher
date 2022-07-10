@@ -5,14 +5,23 @@ it('=> gradsToDegrees(200)', () => expect(gradsToDegrees(200)).toEqual(180));
 it('=> gradsToDegrees(-200)', () => expect(gradsToDegrees(200)).toEqual(180));
 it('=> gradsToDegrees(+200)', () => expect(gradsToDegrees(200)).toEqual(180));
 it('=> radiansToDegrees(3.14)', () => expect(radiansToDegrees(3.14)).toEqual(180));
-it('=> hsl() ❌ ', () => expect(hslMatcher('')).toBeUndefined());
-it('=> hsl() ❌ ', () => expect(hslMatcher('hsl()')).toBeUndefined());
-it('=> hsl("") ❌ ', () => expect(hslMatcher('hsl("")')).toBeUndefined());
-it('=> hsl("~~~~") ❌ ', () => expect(hslMatcher('hsl("~~~")')).toBeUndefined());
-it('=> hsl(240, 100%, 50%, 23x) ❌ ', () => expect(hslMatcher('hsl(240, 100%, 50%, 23x)')).toBeUndefined());
-it('=> hsl(.9 .99% .999%/ ) ❌ ', () => expect(hslMatcher('hsl(.9 .99% .999%/ )')).toBeUndefined());
-it('=> hsl(.9 .99% .999%, ) ❌ ', () => expect(hslMatcher('hsl(.9 .99% .999%, )')).toBeUndefined());
-it('=> hsl(.9, .99% .999% ) ❌ ', () => expect(hslMatcher('hsl(.9, .99% .999% )')).toBeUndefined());
+it('❌ => hsl()', () => expect(hslMatcher('')).toBeUndefined());
+it('❌ => hsl()', () => expect(hslMatcher('hsl()')).toBeUndefined());
+it('❌ => hsl("")', () => expect(hslMatcher('hsl("")')).toBeUndefined());
+it('❌ => hsl(".343")', () => expect(hslMatcher('hsl(".343")')).toBeUndefined());
+it('❌ => hsl("~~~~")', () => expect(hslMatcher('hsl("~~~")')).toBeUndefined());
+it('❌ => hsl(240, 100%, 50%, 23x)', () => expect(hslMatcher('hsl(240, 100%, 50%, 23x)')).toBeUndefined());
+it('❌ => hsl(.9 .99% .999%/ )', () => expect(hslMatcher('hsl(.9 .99% .999%/ )')).toBeUndefined());
+it('❌ => hsl(.9 .99% .999%/ - )', () => expect(hslMatcher('hsl(.9 .99% .999%/ - )')).toBeUndefined());
+it('❌ => hsl(240, 100%, 50%, - )', () => expect(hslMatcher('hsl(240, 100%, 50%, - )')).toBeUndefined());
+it('❌ => hsl(240, 100%, 50%,- )', () => expect(hslMatcher('hsl(240, 100%, 50%,- )')).toBeUndefined());
+it('❌ => hsl(.9 .99% .999%, )', () => expect(hslMatcher('hsl(.9 .99% .999%, )')).toBeUndefined());
+it('❌ => hsl(.9, .99% .999% )', () => expect(hslMatcher('hsl(.9, .99% .999% )')).toBeUndefined());
+it('❌ => hsla(.9, .99% .999% )', () => expect(hslMatcher('hsla(.9, .99% .999% )')).toBeUndefined());
+it('❌ => hsl(+ .9deg, .99%, -.999% )', () => expect(hslMatcher('hsl(+ .9deg, .99%, -.999% )')).toBeUndefined());
+
+it('✅ valid => hsl(.9deg, .99%, -.999% )', () => expect(hslMatcher('hsl(.9deg, .99%, -.999% )')).toBeTruthy());
+it('✅ valid => hsl(-.9deg, .99%, -.999% )', () => expect(hslMatcher('hsl(-.9deg, .99%, -.999% )')).toBeTruthy());
 
 it('=> hsl(.9, .99%, -.999% ) ✅ ', () =>
   expect(hslMatcher('hsl(.9, .99%, -.999% )')).toEqual({

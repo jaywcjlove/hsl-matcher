@@ -30,8 +30,7 @@ export default function hslMatcher(hsl: string = ''): HSLAObjectStringColor | un
   const match = MATCHER.exec(hsl) || MATCHER_SPACE.exec(hsl);
   if (!!match) {
     const [_, h, s, l, a] = match;
-    if (a && a.trim() === ',') return;
-    if (a && a.trim() === '/') return;
+    if (a && /^(:?(\/|,)\s*-?\+?)$/.test(a.trim())) return;
     return {
       h,
       s,
