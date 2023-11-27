@@ -1,6 +1,7 @@
 HSL(a) Matcher
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
 [![Build & Deploy](https://github.com/jaywcjlove/hsl-matcher/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/hsl-matcher/actions/workflows/ci.yml)
 [![Open in unpkg](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/hsl-matcher/file/README.md)
 [![npm version](https://img.shields.io/npm/v/hsl-matcher.svg)](https://www.npmjs.com/package/hsl-matcher)
